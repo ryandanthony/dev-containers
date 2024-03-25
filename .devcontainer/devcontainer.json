@@ -2,19 +2,52 @@
     "name": "ryandanthony: general",
     "dockerComposeFile": "docker-compose.yml",
     "service": "devcontainer",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "features": {
+        //Languages
+        "ghcr.io/devcontainers/features/dotnet:2": {
+            "version": "8.0",
+            "additionalVersions": "7.0,6.0"
+        },
+        "ghcr.io/devcontainers/features/go:1": {},
+        "ghcr.io/devcontainers/features/rust:1": {},
+        //CLI tools
         "ghcr.io/devcontainers/features/azure-cli:1": {
             "installBicep": true,
-            "extensions":"account,support,subscription"
+            "extensions": "account,support,subscription"
         },
-        "ghcr.io/devcontners/features/dotnet:2": {
-            "version": "8.0",
-            "additionalVersions": "7.0, 6.0"
+        "ghcr.io/devcontainers/features/powershell:1": {},
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/git-lfs:1": {},
+        "ghcr.io/devcontainers/features/terraform:1": {},
+        "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+            "packages": "curl,iputils-ping"
         },
-        "ghcr.io/devcontainers/features/docker-in-docker:1": {
+        "ghcr.io/devcontainers-contrib/features/gh-release:1": {
+            "repo": "justjanne/powerline-go",
+            "version": "1.24",
+            "binaryNames": "powerline-go-linux-amd64"
+        },
+        //Docker-in-Docker
+        "ghcr.io/devcontainers/features/docker-in-docker:2.10.1": {
             "version": "latest",
             "moby": true,
             "installDockerComposeSwitch": true
+        },
+        //Shared Libraries
+        "ghcr.io/devcontainers/features/nvidia-cuda:1": {}
+    },
+    // Configure tool-specific properties.
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "dotfiles.repository": "ryandanthony/dotfiles",
+                "dotfiles.targetPath": "~/dotfiles",
+                "dotfiles.installCommand": "~/dotfiles/install"
+            }
         }
     }
 }
