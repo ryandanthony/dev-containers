@@ -1,5 +1,20 @@
 {
     "name": "ryandanthony: general",
     "dockerComposeFile": "docker-compose.yml",
-    "service": "devcontainer"
+    "service": "devcontainer",
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli:1": {
+            "installBicep": true,
+            "extensions":"account,support,subscription"
+        },
+        "ghcr.io/devcontners/features/dotnet:2": {
+            "version": "8.0",
+            "additionalVersions": "7.0, 6.0"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {
+            "version": "latest",
+            "moby": true,
+            "installDockerComposeSwitch": true
+        }
+    }
 }
