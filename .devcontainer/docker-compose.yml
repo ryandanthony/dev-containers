@@ -5,7 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ../..:/workspaces:cached            
+      - ../..:/workspaces:cached     
+      - ~/.ssh/id_ed25519:/home/vscode/.ssh/id_ed25519:cached
+      - ~/.ssh/id_ed25519.pub:/home/vscode/.ssh/id_ed25519.pub:cached
     networks:
       - general
     command: sleep infinity
