@@ -1,11 +1,12 @@
 version: '3.8'
 services:
   devcontainer:
+    hostname: devcontainer
     build: 
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ../..:/workspaces:cached     
+      - //c/workspaces:/workspaces:cached     
       - ~/.ssh/id_ed25519:/home/vscode/.ssh/id_ed25519:cached
       - ~/.ssh/id_ed25519.pub:/home/vscode/.ssh/id_ed25519.pub:cached
     networks:
@@ -25,6 +26,5 @@ services:
 
 volumes:
   postgres-data:
-
 networks:
   general:  

@@ -3,7 +3,9 @@
     "dockerComposeFile": "docker-compose.yml",
     "service": "devcontainer",
     "remoteUser": "vscode",
-    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "workspaceFolder": "/workspaces",
+    "forwardPorts": [2222],
+    "postCreateCommand": "sudo passwd $(whoami)",
     "postStartCommand": "/home/vscode/dotfiles/install",
     "features": {
         //Languages
@@ -37,8 +39,7 @@
             "moby": true,
             "installDockerComposeSwitch": true
         },
-        //Shared Libraries
-        // "ghcr.io/devcontainers/features/nvidia-cuda:1": {}
+        "ghcr.io/devcontainers/features/sshd:1": {}
     },
     // Configure tool-specific properties.
     "customizations": {
