@@ -1,6 +1,7 @@
 {
     "name": "ryandanthony: general",
     "dockerComposeFile": "docker-compose.yml",
+    "shutdownAction": "none",
     "service": "devcontainer",
     "remoteUser": "vscode",
     "workspaceFolder": "/workspaces",
@@ -16,6 +17,7 @@
         // "ghcr.io/devcontainers/features/go:1": {},
         "ghcr.io/devcontainers/features/rust:1": {},
         //CLI tools
+        "ghcr.io/devcontainers/features/node:1": {},
         "ghcr.io/devcontainers/features/azure-cli:1": {
             "installBicep": true,
             "extensions": "account,support,subscription"

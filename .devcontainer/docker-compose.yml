@@ -11,7 +11,7 @@ services:
       - ~/.ssh/id_ed25519.pub:/home/vscode/.ssh/id_ed25519.pub:cached
     networks:
       - general
-    command: sleep infinity
+    command: /docker-entrypoint.sh sleep infinity
   db:
     image: postgres:latest
     restart: unless-stopped
