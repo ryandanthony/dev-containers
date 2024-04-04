@@ -47,6 +47,9 @@
     "customizations": {
         // Configure properties specific to VS Code.
         "vscode": {
+            "extensions": [
+                "rust-lang.rust-analyzer",
+            ],
             // Set *default* container specific settings.json values on container create.
             "settings": {
                 "dotfiles.repository": "ryandanthony/dotfiles",
