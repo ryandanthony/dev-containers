@@ -6,7 +6,7 @@
     "remoteUser": "vscode",
     "workspaceFolder": "/workspaces",
     "forwardPorts": [2222],
-    "postCreateCommand": "sudo passwd $(whoami)",
+    "postCreateCommand": "sudo passwd $(whoami) && . ${NVM_DIR}/nvm.sh && nvm install --lts",
     "postStartCommand": "/home/vscode/dotfiles/install",
     "features": {
         //Languages
@@ -15,7 +15,7 @@
             "additionalVersions": "7.0,6.0"
         },
         // "ghcr.io/devcontainers/features/go:1": {},
-        "ghcr.io/devcontainers/features/rust:1": {},
+        //"ghcr.io/devcontainers/features/rust:1": {},
         //CLI tools
         "ghcr.io/devcontainers/features/node:1": {},
         "ghcr.io/devcontainers/features/azure-cli:1": {
@@ -54,7 +54,15 @@
             "settings": {
                 "dotfiles.repository": "ryandanthony/dotfiles",
                 "dotfiles.targetPath": "~/dotfiles",
-                "dotfiles.installCommand": "/home/vscode/dotfiles/install"
+                "dotfiles.installCommand": "/home/vscode/dotfiles/install",
+                "editor.formatOnSave": true,
+                "editor.formatOnType": true,
+                "rust-analyzer.rustfmt.enableRangeFormatting": true,
+                "[rust]": {
+                    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+                    "editor.formatOnSave": true,
+                    "editor.formatOnSaveMode": "file"
+                  },
             }
         }
     }

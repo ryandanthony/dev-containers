@@ -6,25 +6,25 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - //c/workspaces:/workspaces:cached     
-      - ~/.ssh/id_ed25519:/home/vscode/.ssh/id_ed25519:cached
-      - ~/.ssh/id_ed25519.pub:/home/vscode/.ssh/id_ed25519.pub:cached
+      - //c/workspaces:/workspaces:cached
+      - ~/.ssh/id_ed25519:/home/vscode/.ssh/id_ed25519:ro
+      - ~/.ssh/id_ed25519.pub:/home/vscode/.ssh/id_ed25519.pub:ro
     networks:
       - general
     command: /docker-entrypoint.sh sleep infinity
-  db:
-    image: postgres:latest
-    restart: unless-stopped
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    networks:
-      - general      
-    environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
+  # db:
+  #   image: postgres:latest
+  #   restart: unless-stopped
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   networks:
+  #     - general      
+  #   environment:
+  #     POSTGRES_PASSWORD: postgres
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_DB: postgres
 
-volumes:
-  postgres-data:
+# volumes:
+#   postgres-data:
 networks:
   general:  
