@@ -7,8 +7,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - //c/workspaces:/workspaces:cached
-      - ~/.ssh/id_ed25519:/home/vscode/.ssh/id_ed25519:ro
-      - ~/.ssh/id_ed25519.pub:/home/vscode/.ssh/id_ed25519.pub:ro
+      - ~/.ssh/id_ed25519:/home/vscode/.ssh/id_ed25519:cached
+      - ~/.ssh/id_ed25519.pub:/home/vscode/.ssh/id_ed25519.pub:cached
     networks:
       - general
     command: /docker-entrypoint.sh sleep infinity

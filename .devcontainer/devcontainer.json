@@ -6,7 +6,7 @@
     "remoteUser": "vscode",
     "workspaceFolder": "/workspaces",
     "forwardPorts": [2222],
-    "postCreateCommand": "sudo passwd $(whoami) && . ${NVM_DIR}/nvm.sh && nvm install --lts",
+    "postCreateCommand": "sudo chown vscode:vscode /home/vscode/.ssh/id_* && sudo chmod 700 /home/vscode/.ssh/id_* && sudo passwd $(whoami) && . ${NVM_DIR}/nvm.sh && nvm install --lts",
     "postStartCommand": "/home/vscode/dotfiles/install",
     "features": {
         //Languages
@@ -49,9 +49,14 @@
         "vscode": {
             "extensions": [
                 "rust-lang.rust-analyzer",
+                "esbenp.prettier-vscode",
             ],
             // Set *default* container specific settings.json values on container create.
             "settings": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "[javascript]": {
+                  "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
                 "dotfiles.repository": "ryandanthony/dotfiles",
                 "dotfiles.targetPath": "~/dotfiles",
                 "dotfiles.installCommand": "/home/vscode/dotfiles/install",
