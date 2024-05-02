@@ -9,7 +9,7 @@
         2222
     ],
     "postCreateCommand": "sudo chown vscode:vscode /home/vscode/.ssh/id_* && sudo chmod 700 /home/vscode/.ssh/id_* && sudo passwd $(whoami) && . ${NVM_DIR}/nvm.sh && nvm install --lts",
-    "postStartCommand": "/home/vscode/dotfiles/install",
+    // "postStartCommand": "/home/vscode/dotfiles/install",
     "containerEnv": {
         "SHELL": "/bin/bash"
     },
@@ -79,9 +79,9 @@
                 "[javascript]": {
                     "editor.defaultFormatter": "esbenp.prettier-vscode"
                 },
-                "dotfiles.repository": "ryandanthony/dotfiles",
-                "dotfiles.targetPath": "~/dotfiles",
-                "dotfiles.installCommand": "/home/vscode/dotfiles/install",
+                "dotfiles.repository": "https://github.com/ryandanthony/dotfiles.git",
+                "dotfiles.targetPath": "~/.dotfiles",
+                "dotfiles.installCommand": "~/.dotfiles/install",
                 "editor.formatOnSave": true,
                 "editor.formatOnType": true,
                 "rust-analyzer.rustfmt.enableRangeFormatting": true,
