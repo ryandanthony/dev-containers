@@ -5,9 +5,17 @@
     "service": "devcontainer",
     "remoteUser": "vscode",
     "workspaceFolder": "/workspaces",
-    "forwardPorts": [2222],
+    "forwardPorts": [
+        2222
+    ],
     "postCreateCommand": "sudo chown vscode:vscode /home/vscode/.ssh/id_* && sudo chmod 700 /home/vscode/.ssh/id_* && sudo passwd $(whoami) && . ${NVM_DIR}/nvm.sh && nvm install --lts",
     "postStartCommand": "/home/vscode/dotfiles/install",
+    "containerEnv": {
+        "SHELL": "/bin/bash"
+    },
+    "hostRequirements": {
+        "gpu": "optional"
+    },
     "features": {
         //Languages
         "ghcr.io/devcontainers/features/dotnet:2": {
@@ -41,7 +49,9 @@
             "moby": true,
             "installDockerComposeSwitch": true
         },
-        "ghcr.io/devcontainers/features/sshd:1": {}
+        "ghcr.io/devcontainers/features/sshd:1": {},
+        "ghcr.io/prulloac/devcontainer-features/ollama:1": {},
+        "ghcr.io/devcontainers/features/nvidia-cuda:1": {}
     },
     // Configure tool-specific properties.
     "customizations": {
@@ -50,12 +60,24 @@
             "extensions": [
                 "rust-lang.rust-analyzer",
                 "esbenp.prettier-vscode",
+                "ex3ndr.llama-coder",
+                "editorconfig.editorconfig",
+                "eamodio.gitlens",
+                "TakumiI.markdowntable",
+                "DavidAnson.vscode-markdownlint",
+                "ms-dotnettools.dotnet-interactive-vscode",
+                "ms-ossdata.vscode-postgresql",
+                "ms-vscode.PowerShell",
+                "DotJoshJohnson.xml",
+                "redhat.vscode-yaml",
+                "ms-kubernetes-tools.vscode-kubernetes-tools",
+                "VisualStudioExptTeam.vscodeintellicode",
             ],
             // Set *default* container specific settings.json values on container create.
             "settings": {
                 "editor.defaultFormatter": "esbenp.prettier-vscode",
                 "[javascript]": {
-                  "editor.defaultFormatter": "esbenp.prettier-vscode"
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
                 },
                 "dotfiles.repository": "ryandanthony/dotfiles",
                 "dotfiles.targetPath": "~/dotfiles",
@@ -67,9 +89,9 @@
                     "editor.defaultFormatter": "rust-lang.rust-analyzer",
                     "editor.formatOnSave": true,
                     "editor.formatOnSaveMode": "file"
-                  },
+                },
+                "inference.model": "stable-code:3b-code-q4_0",
             }
         }
     }
-
 }
